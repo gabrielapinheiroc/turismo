@@ -1,0 +1,134 @@
+use ("TurismoDB");
+
+db.getCollectionNames().forEach(function(c) { if (c.indexOf("system.") == -1) db[c].drop(); })
+
+db.createCollection("PontosTuristicos");
+
+db.PontosTuristicos.insertMany([ 
+{   
+nome: "Cristo Redentor",
+cidade: "Rio de Janeiro",
+estado: "Rio de Janeiro",
+pais: "Brasil",
+qtdvisitante: 780198,
+estacao: ["Verão", "Inverno"]
+},
+
+{
+nome: "Pão de Açúcar",
+cidade: "Rio de Janeiro",
+estado: "Rio de Janeiro",
+pais: "Brasil",
+qtdvisitante: 158975,
+estacao:  ["Verão", "Primavera"]
+},
+
+{
+nome: "Cataratas do Iguaçu",
+cidade: "Foz do Iguaçu",
+estado: "Paraná",
+pais: "Brasil",
+qtdvisitante: 545746,
+estacao: ["Verão", "Outono"]
+},
+
+{
+nome: "Pelourinho",
+cidade: "Salvador",
+estado: "Bahia",
+pais: "Brasil",
+qtdvisitante: 765486,
+estacao: ["Verão", "Inverno"]
+},
+
+{
+nome: "Parque das Aves",
+cidade: "Foz do Iguaçu",
+estado: "Paraná",
+pais: "Brasil",
+qtdvisitante: 700000,
+estacao:  ["Verão", "Outono"]
+},
+
+{
+nome: "Parque Nacional da Chapada Diamantina",
+cidade: "Lençóis",
+estado: "Bahia",
+pais: "Brasil",
+qtdvisitante: 300000,
+estacao: ["Outono", "Primavera"]  
+},
+
+{
+nome: "Teatro Amazonas",
+cidade: "Manaus",
+estado: "Amazonas",
+pais: "Brasil",
+qtdvisitante: 100000,
+estacao: ["Verão", "Inverno"]
+},
+
+{
+nome: "Parque Estadual da Serra do Mar",
+cidade: "São Paulo",
+estado: "São Paulo",
+pais: "Brasil",
+qtdvisitante: 500000,
+estacao:  ["Outono", "Primavera"]  
+}
+
+{
+nome: "Marco Zero",
+cidade: "Recife",
+estado: "Pernambuco",
+pais: "Brasil",
+qtdvisitante: 979667,
+estacao:  ["Verão", "Inverno"]
+}
+
+{
+nome: "Centro Histórico de Olinda",
+cidade: "Olinda",
+estado: "Pernambuco",
+pais: "Brasil",
+qtdvisitante: 200000,
+estacao: ["Verão", "Inverno"]
+},
+
+{
+nome: "Praia do Forte",
+cidade: "Mata de São João",
+estado: "Bahia",
+pais: "Brasil",
+qtdvisitante: 200400,
+estacao:  ["Verão", "Inverno"]
+},
+
+{
+nome: "Praia de Porto de Galinhas",
+cidade: "Ipojuca",
+estado: "Pernambuco",
+pais: "Brasil",
+qtdvisitante: 1e6,
+estacao: ["Verão", "Inverno"]
+},
+
+{
+nome: "Jericoacoara",
+cidade: "Jijoca de Jericoacoara",
+estado: "Ceará",
+pais: "Brasil",
+qtdvisitante: 400000,
+estacao: ["Verão", "Inverno"]
+},
+
+{
+nome: "São Miguel dos Milagres",
+cidade: "São Miguel dos Milagres",
+estado: "Alagoas",
+pais: "Brasil",
+qtdvisitante: 100000,
+estacao: ["Verão", "Inverno"]
+}
+
+]);
