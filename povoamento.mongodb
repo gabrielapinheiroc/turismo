@@ -109,7 +109,7 @@ nome: "Praia de Porto de Galinhas",
 cidade: "Ipojuca",
 estado: "Pernambuco",
 pais: "Brasil",
-qtdvisitante: 1e6,
+qtdvisitante: 108866,
 estacao: ["Verão", "Inverno"]
 },
 
@@ -129,6 +129,122 @@ estado: "Alagoas",
 pais: "Brasil",
 qtdvisitante: 100000,
 estacao: ["Verão", "Inverno"]
+}
+
+]);
+
+db.createCollection("Hoteis");
+
+db.Hoteis.insertMany([
+
+{
+nome: "Hotel A",
+cidade: "Rio de Janeiro",
+estado: "Rio de Janeiro",
+pais: "Brasil",
+classificacao: 4.5,
+qtd_quartos: 100,
+comodidades: ["piscina", "academia", "spa"]
+},
+
+{
+nome: "Hotel B",
+cidade: "Salvador",
+estado: "Bahia",
+pais: "Brasil",
+classificacao: 4,
+qtd_quartos: 80,
+comodidades: ["piscina", "restaurante"]
+},
+
+{
+nome: "Hotel C",
+cidade: "Florianópolis",
+estado: "Santa Catarina",
+pais: "Brasil",
+classificacao: 3.5,
+qtd_quartos: 50,
+comodidades: ["piscina", "serviço de quarto"]
+},
+
+{
+nome: "Hotel D",
+cidade: "Foz do Iguaçu",
+estado: "Paraná",
+pais: "Brasil",
+classificacao: 4.5,
+qtd_quartos: 80,
+amenidades: ["piscina", "serviço de quarto"]
+},
+
+{
+nome: "Hotel E",
+cidade: "Lençóis",
+estado: "Bahia",
+pais: "Brasil",
+classificacao: 3,
+qtd_quartos: 50,
+amenidades: ["piscina", "serviço de quarto", "restaurante"]
+},
+
+{
+nome: "Hotel F",
+cidade: "Manaus",
+estado: "Amazonas",
+pais: "Brasil",
+classificacao: 4.5,
+qtd_quartos: 70,
+amenidades: ["piscina", "serviço de quarto", "restaurante", "spa"]
+},
+
+{
+nome: "Hotel G",
+cidade: "São Paulo",
+estado: "São Paulo",
+pais: "Brasil",
+classificacao: 5,
+qtd_quartos: 120,
+amenidades: ["piscina", "serviço de quarto", "restaurante", "spa", "academia" ]
+},
+
+{
+nome: "Hotel H",
+cidade: "Recife",
+estado: "Pernambuco",
+pais: "Brasil",
+classificacao: 4,
+qtd_quartos: 60,
+amenidades: ["piscina", "serviço de quarto", "restaurante"]
+},
+
+]);
+
+db.createCollection("Pacotes");
+
+db.Pacotes.insertMany([ 
+
+{
+tipo: "Prata",
+classificacao_hotel: 4,
+valor: 3500,
+transporte: ["Avião", "Ônibus"]
+estacao: ["Verão", "Inverno", "Primavera", "Outono"]
+},
+
+{
+tipo: "Ouro",
+classificacao_hotel: 5,
+valor: 5000,
+transporte: ["Avião"]
+estacao: ["Verão", "Inverno", "Primavera", "Outono"]
+},
+
+{
+tipo: "Bronze",
+classificacao_hotel: 3,
+valor: 2000,
+transporte: ["Ônibus"]
+estacao: ["Verão", "Inverno", "Primavera"]
 }
 
 ]);
