@@ -1,0 +1,103 @@
+use ("TurismoDB");
+
+// Retorna os 5 pontos turísticos mais visitados em ordem decrescente
+db.PontosTuristicos.find().sort({qtdvisitante: -1}).limit(5);
+
+// Retorna a quantidade média de visitantes por cidade
+db.PontosTuristicos.aggregate([
+    {
+        $group: {
+            _id: {cidade: "$cidade"},
+            media: {$avg: "$qtdvisitante"}
+        }
+    }
+]);
+
+// Retorna o nome, a cidade e o estado dos pontos turísticos localizados no nordeste
+db.PontosTuristicos.aggregate([
+    {
+        $match: {
+            $or: [
+                {estado: "Alagoas"},
+                {estado: "Bahia"},
+                {estado: "Ceará"},
+                {estado: "Pernambuco"}
+            ]
+        }
+    },
+    {
+        $project: {
+            _id: 0,
+            nome: 1,
+            cidade: 1,
+            estado: 1
+        }
+    }
+]);
+
+// Retorna as cidades que possuem hotéis com classificação a partir de 4 estrelas
+db.Hoteis.distinct("cidade", {classificacao: {$gte: 4}});
+
+// Retorna quantos hotéis possuem piscina
+db.Hoteis.count({comodidades: "piscina"});
+
+// Retorna a quantidade total de quartos em todos os hotéis
+db.Hoteis.aggregate([
+    {
+        $group: {
+            _id: null,
+            total: {$sum: "$qtd_quartos"}
+        }
+    }
+]);
+
+// Retorna o tipo e a quantidade de estações todos os pacotes que possuem a quantidade máxima de estações
+db.Pacotes.aggregate([
+    {
+        $project: {
+            _id: 0,
+            tipo: 1,
+            estacao_count: {$size: "$estacao"}
+        }
+    },
+    {
+        $group: {
+            _id: null,
+            max_estacao_count: {$max: "$estacao_count"}
+        }
+    },
+    {
+        $lookup: {
+            from: "Pacotes",
+            let: {max_estacao_count: "$max_estacao_count"},
+            pipeline: [
+                {
+                    $project: {
+                        _id: 0,
+                        tipo: 1,
+                        estacao_count: {$size: "$estacao"}
+                    }
+                },
+                {
+                    $match: {
+                    $expr: {$eq: ["$estacao_count", "$$max_estacao_count"]}
+                    }
+                }
+            ],
+            as: "pacotes"
+        }
+    },
+    {
+        $unwind: "$pacotes"
+    },
+    {
+        $replaceRoot: {newRoot: "$pacotes"}
+    }
+]);
+
+// Retorna os turistas que nasceram a partir de 1990
+db.Turistas.find({
+    $where: function() {
+        return this.data_nascimento.getFullYear() >= 1990;
+    }
+});
