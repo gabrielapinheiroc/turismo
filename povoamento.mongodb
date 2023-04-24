@@ -3,334 +3,321 @@ use ("TurismoDB");
 db.getCollectionNames().forEach(function(c) { if (c.indexOf("system.") == -1) db[c].drop(); })
 
 db.createCollection("PontosTuristicos");
-
 db.PontosTuristicos.insertMany([ 
 {   
-nome: "Cristo Redentor",
-cidade: "Rio de Janeiro",
-estado: "Rio de Janeiro",
-pais: "Brasil",
-qtdvisitante: 780198,
-estacao: ["Verão", "Inverno"]
+    "nome": "Cristo Redentor",
+    "cidade": "Rio de Janeiro",
+    "estado": "Rio de Janeiro",
+    "pais": "Brasil",
+    "qtdvisitante": 780198,
+    "estacao": ["Verão", "Inverno"]
 },
 
 {
-nome: "Pão de Açúcar",
-cidade: "Rio de Janeiro",
-estado: "Rio de Janeiro",
-pais: "Brasil",
-qtdvisitante: 158975,
-estacao:  ["Verão", "Primavera"]
+    "nome": "Pão de Açúcar",
+    "cidade": "Rio de Janeiro",
+    "estado": "Rio de Janeiro",
+    "pais": "Brasil",
+    "qtdvisitante": 158975,
+    "estacao":  ["Verão", "Primavera"]
 },
 
 {
-nome: "Cataratas do Iguaçu",
-cidade: "Foz do Iguaçu",
-estado: "Paraná",
-pais: "Brasil",
-qtdvisitante: 545746,
-estacao: ["Verão", "Outono"]
+    "nome": "Cataratas do Iguaçu",
+    "cidade": "Foz do Iguaçu",
+    "estado": "Paraná",
+    "pais": "Brasil",
+    "qtdvisitante": 545746,
+    "estacao": ["Verão", "Outono"]
 },
 
 {
-nome: "Pelourinho",
-cidade: "Salvador",
-estado: "Bahia",
-pais: "Brasil",
-qtdvisitante: 765486,
-estacao: ["Verão", "Inverno"]
+    "nome": "Pelourinho",
+    "cidade": "Salvador",
+    "estado": "Bahia",
+    "pais": "Brasil",
+    "qtdvisitante": 765486,
+    "estacao": ["Verão", "Inverno"]
 },
 
 {
-nome: "Parque das Aves",
-cidade: "Foz do Iguaçu",
-estado: "Paraná",
-pais: "Brasil",
-qtdvisitante: 700000,
-estacao:  ["Verão", "Outono"]
+    "nome": "Parque das Aves",
+    "cidade": "Foz do Iguaçu",
+    "estado": "Paraná",
+    "pais": "Brasil",
+    "qtdvisitante": 700000,
+    "estacao":  ["Verão", "Outono"]
 },
 
 {
-nome: "Parque Nacional da Chapada Diamantina",
-cidade: "Lençóis",
-estado: "Bahia",
-pais: "Brasil",
-qtdvisitante: 300000,
-estacao: ["Outono", "Primavera"]  
+    "nome": "Parque Nacional da Chapada Diamantina",
+    "cidade": "Lençóis",
+    "estado": "Bahia",
+    "pais": "Brasil",
+    "qtdvisitante": 300000,
+    "estacao": ["Outono", "Primavera"]  
 },
 
 {
-nome: "Teatro Amazonas",
-cidade: "Manaus",
-estado: "Amazonas",
-pais: "Brasil",
-qtdvisitante: 100000,
-estacao: ["Verão", "Inverno"]
+    "nome": "Teatro Amazonas",
+    "cidade": "Manaus",
+    "estado": "Amazonas",
+    "pais": "Brasil",
+    "qtdvisitante": 100000,
+    "estacao": ["Verão", "Inverno"]
 },
 
 {
-nome: "Parque Estadual da Serra do Mar",
-cidade: "São Paulo",
-estado: "São Paulo",
-pais: "Brasil",
-qtdvisitante: 500000,
-estacao:  ["Outono", "Primavera"]  
-}
-
-{
-nome: "Marco Zero",
-cidade: "Recife",
-estado: "Pernambuco",
-pais: "Brasil",
-qtdvisitante: 979667,
-estacao:  ["Verão", "Inverno"]
-}
-
-{
-nome: "Centro Histórico de Olinda",
-cidade: "Olinda",
-estado: "Pernambuco",
-pais: "Brasil",
-qtdvisitante: 200000,
-estacao: ["Verão", "Inverno"]
+    "nome": "Parque Estadual da Serra do Mar",
+    "cidade": "São Paulo",
+    "estado": "São Paulo",
+    "pais": "Brasil",
+    "qtdvisitante": 500000,
+    "estacao":  ["Outono", "Primavera"]  
 },
 
 {
-nome: "Praia do Forte",
-cidade: "Mata de São João",
-estado: "Bahia",
-pais: "Brasil",
-qtdvisitante: 200400,
-estacao:  ["Verão", "Inverno"]
+    "nome": "Marco Zero",
+    "cidade": "Recife",
+    "estado": "Pernambuco",
+    "pais": "Brasil",
+    "qtdvisitante": 979667,
+    "estacao":  ["Verão", "Inverno"]
 },
 
 {
-nome: "Praia de Porto de Galinhas",
-cidade: "Ipojuca",
-estado: "Pernambuco",
-pais: "Brasil",
-qtdvisitante: 108866,
-estacao: ["Verão", "Inverno"]
+    "nome": "Centro Histórico de Olinda",
+    "cidade": "Olinda",
+    "estado": "Pernambuco",
+    "pais": "Brasil",
+    "qtdvisitante": 200000,
+    "estacao": ["Verão", "Inverno"]
 },
 
 {
-nome: "Jericoacoara",
-cidade: "Jijoca de Jericoacoara",
-estado: "Ceará",
-pais: "Brasil",
-qtdvisitante: 400000,
-estacao: ["Verão", "Inverno"]
+    "nome": "Praia do Forte",
+    "cidade": "Mata de São João",
+    "estado": "Bahia",
+    "pais": "Brasil",
+    "qtdvisitante": 200400,
+    "estacao":  ["Verão", "Inverno"]
 },
 
 {
-nome: "São Miguel dos Milagres",
-cidade: "São Miguel dos Milagres",
-estado: "Alagoas",
-pais: "Brasil",
-qtdvisitante: 100000,
-estacao: ["Verão", "Inverno"]
-}
+    "nome": "Praia de Porto de Galinhas",
+    "cidade": "Ipojuca",
+    "estado": "Pernambuco",
+    "pais": "Brasil",
+    "qtdvisitante": 108866,
+    "estacao": ["Verão", "Inverno"]
+},
 
+{
+    "nome": "Jericoacoara",
+    "cidade": "Jijoca de Jericoacoara",
+    "estado": "Ceará",
+    "pais": "Brasil",
+    "qtdvisitante": 400000,
+    "estacao": ["Verão", "Inverno"]
+},
+
+{
+    "nome": "São Miguel dos Milagres",
+    "cidade": "São Miguel dos Milagres",
+    "estado": "Alagoas",
+    "pais": "Brasil",
+    "qtdvisitante": 100000,
+    "estacao": ["Verão", "Inverno"]
+},
 ]);
 
 db.createCollection("Hoteis");
-
 db.Hoteis.insertMany([
-
 {
-nome: "Hotel A",
-cidade: "Rio de Janeiro",
-estado: "Rio de Janeiro",
-pais: "Brasil",
-classificacao: 4.5,
-qtd_quartos: 100,
-comodidades: ["piscina", "academia", "spa"]
+    "nome": "Hotel A",
+    "cidade": "Rio de Janeiro",
+    "estado": "Rio de Janeiro",
+    "pais": "Brasil",
+    "classificacao": 4.5,
+    "qtd_quartos": 100,
+    "comodidades": ["piscina", "academia", "spa"]
 },
 
 {
-nome: "Hotel B",
-cidade: "Salvador",
-estado: "Bahia",
-pais: "Brasil",
-classificacao: 4,
-qtd_quartos: 80,
-comodidades: ["piscina", "restaurante"]
+    "nome": "Hotel B",
+    "cidade": "Salvador",
+    "estado": "Bahia",
+    "pais": "Brasil",
+    "classificacao": 4,
+    "qtd_quartos": 80,
+    "comodidades": ["piscina", "restaurante"]
 },
 
 {
-nome: "Hotel C",
-cidade: "Florianópolis",
-estado: "Santa Catarina",
-pais: "Brasil",
-classificacao: 3.5,
-qtd_quartos: 50,
-comodidades: ["piscina", "serviço de quarto"]
+    "nome": "Hotel C",
+    "cidade": "Florianópolis",
+    "estado": "Santa Catarina",
+    "pais": "Brasil",
+    "classificacao": 3.5,
+    "qtd_quartos": 50,
+    "comodidades": ["piscina", "serviço de quarto"]
 },
 
 {
-nome: "Hotel D",
-cidade: "Foz do Iguaçu",
-estado: "Paraná",
-pais: "Brasil",
-classificacao: 4.5,
-qtd_quartos: 80,
-amenidades: ["piscina", "serviço de quarto"]
+    "nome": "Hotel D",
+    "cidade": "Foz do Iguaçu",
+    "estado": "Paraná",
+    "pais": "Brasil",
+    "classificacao": 4.5,
+    "qtd_quartos": 80,
+    "amenidades": ["piscina", "serviço de quarto"]
 },
 
 {
-nome: "Hotel E",
-cidade: "Lençóis",
-estado: "Bahia",
-pais: "Brasil",
-classificacao: 3,
-qtd_quartos: 50,
-amenidades: ["piscina", "serviço de quarto", "restaurante"]
+    "nome": "Hotel E",
+    "cidade": "Lençóis",
+    "estado": "Bahia",
+    "pais": "Brasil",
+    "classificacao": 3,
+    "qtd_quartos": 50,
+    "amenidades": ["piscina", "serviço de quarto", "restaurante"]
 },
 
 {
-nome: "Hotel F",
-cidade: "Manaus",
-estado: "Amazonas",
-pais: "Brasil",
-classificacao: 4.5,
-qtd_quartos: 70,
-amenidades: ["piscina", "serviço de quarto", "restaurante", "spa"]
+    "nome": "Hotel F",
+    "cidade": "Manaus",
+    "estado": "Amazonas",
+    "pais": "Brasil",
+    "classificacao": 4.5,
+    "qtd_quartos": 70,
+    "amenidades": ["piscina", "serviço de quarto", "restaurante", "spa"]
 },
 
 {
-nome: "Hotel G",
-cidade: "São Paulo",
-estado: "São Paulo",
-pais: "Brasil",
-classificacao: 5,
-qtd_quartos: 120,
-amenidades: ["piscina", "serviço de quarto", "restaurante", "spa", "academia" ]
+    "nome": "Hotel G",
+    "cidade": "São Paulo",
+    "estado": "São Paulo",
+    "pais": "Brasil",
+    "classificacao": 5,
+    "qtd_quartos": 120,
+    "amenidades": ["piscina", "serviço de quarto", "restaurante", "spa", "academia" ]
 },
 
 {
-nome: "Hotel H",
-cidade: "Recife",
-estado: "Pernambuco",
-pais: "Brasil",
-classificacao: 4,
-qtd_quartos: 60,
-amenidades: ["piscina", "serviço de quarto", "restaurante"]
+    "nome": "Hotel H",
+    "cidade": "Recife",
+    "estado": "Pernambuco",
+    "pais": "Brasil",
+    "classificacao": 4,
+    "qtd_quartos": 60,
+    "amenidades": ["piscina", "serviço de quarto", "restaurante"]
 },
-
 ]);
 
 db.createCollection("Pacotes");
-
 db.Pacotes.insertMany([ 
-
 {
-tipo: "Bronze",
-
-valor_hotel: {
-    "3": 250,
-    "3.5": 300,
-    "4": 400,
-}
-transporte: ["Ônibus"],
-estacao: ["Verão", "Inverno", "Primavera"]
+    "tipo": "Bronze",
+    "valor_hotel": {
+        "3": 250,
+        "3.5": 300,
+        "4": 400
+    },
+    "transporte": ["Ônibus"],
+    "estacao": ["Verão", "Inverno", "Primavera"]
 },
 
 {
-tipo: "Prata",
-classificacao_hotel: 4,
-valor_hotel: {
-    "3.5": 500,
-    "4": 600,
-    "4.5": 650
-}
-transporte: ["Avião", "Ônibus"]
-estacao: ["Verão", "Inverno", "Primavera", "Outono"]
+    "tipo": "Prata",
+    "classificacao_hotel": 4,
+    "valor_hotel": {
+        "3.5": 500,
+        "4": 600,
+        "4.5": 650
+    },
+    "transporte": ["Avião", "Ônibus"],
+    "estacao": ["Verão", "Inverno", "Primavera", "Outono"]
 },
 
 {
-tipo: "Ouro",
-valor_hotel: {
-    "4": 750,
-    "4.5": 1000,
-    "5": 1500
-}
-transporte: ["Avião"],
-estacao: ["Verão", "Inverno", "Primavera", "Outono"]
+    "tipo": "Ouro",
+    "valor_hotel": {
+        "4": 750,
+        "4.5": 1000,
+        "5": 1500
+    },
+    "transporte": ["Avião"],
+    "estacao": ["Verão", "Inverno", "Primavera", "Outono"]
 },
 
 /*
 {
-tipo: "Prata",
-classificacao_hotel: 4,
-valor: 3500,
-transporte: ["Avião", "Ônibus"],
-estacao: ["Verão", "Inverno", "Primavera", "Outono"]
+    "tipo": "Prata",
+    "classificacao_hotel": 4,
+    "valor": 3500,
+    "transporte": ["Avião", "Ônibus"],
+    "estacao": ["Verão", "Inverno", "Primavera", "Outono"]
 },
 
 {
-tipo: "Ouro",
-classificacao_hotel: 5,
-valor: 5000,
-transporte: ["Avião"]
-estacao: ["Verão", "Inverno", "Primavera", "Outono"]
+    "tipo": "Ouro",
+    "classificacao_hotel": 5,
+    "valor": 5000,
+    "transporte": ["Avião"],
+    "estacao": ["Verão", "Inverno", "Primavera", "Outono"]
 },
 
 {
-tipo: "Bronze",
-classificacao_hotel: 3,
-valor: 2000,
-transporte: ["Ônibus"]
-estacao: ["Verão", "Inverno", "Primavera"]
-}
+    "tipo": "Bronze",
+    "classificacao_hotel": 3,
+    "valor": 2000,
+    "transporte": ["Ônibus"],
+    "estacao": ["Verão", "Inverno", "Primavera"]
+},
 */
-
 ]);
 
 db.createCollection("Turistas");
-
 db.Turistas.insertMany([ 
 {
-    CPF: "79879898576"
-    genero: "F"
-    data_nascimento: new Date("1977-08-22"),
-    origem: "São Paulo - São Paulo"
-}
-
-{
-    CPF: "79879898576",
-    genero: "F",
-    data_nascimento: new Date("1990-05-15"),
-    origem: "Recife - Pernambuco"
+    "CPF": "79879898576",
+    "genero": "F",
+    "data_nascimento": new Date("1977-08-22"),
+    "origem": "São Paulo - São Paulo"
 },
 
 {
-    CPF: "13546548965",
-    genero: "M",
-    data_nascimento: new Date("1985-12-01"),
-    origem: "Salvador - Bahia"
+    "CPF": "79879898567",
+    "genero": "F",
+    "data_nascimento": new Date("1990-05-15"),
+    "origem": "Recife - Pernambuco"
+},
+
+{
+    "CPF": "13546548965",
+    "genero": "M",
+    "data_nascimento": new Date("1985-12-01"),
+    "origem": "Salvador - Bahia"
 },
   
 {
-    CPF: "98765432109",
-    genero: "F",
-    data_nascimento: new Date("1995-08-10"),
-    origem: "Fortaleza - Ceará"
-}
-
+    "CPF": "98765432109",
+    "genero": "F",
+    "data_nascimento": new Date("1995-08-10"),
+    "origem": "Fortaleza - Ceará"
+},
  
 {
-    CPF: "23456789012",
-    genero: "F",
-    data_nascimento: new Date("1995-05-12"),
-    origem: "Belo Horizonte - Minas Gerais"
+    "CPF": "23456789012",
+    "genero": "F",
+    "data_nascimento": new Date("1995-05-12"),
+    "origem": "Belo Horizonte - Minas Gerais"
 },
 
 {
-    CPF: "34567890123",
-    genero: "M",
-    data_nascimento: new Date("1972-09-22"),
-    origem: "Porto Alegre - Rio Grande do Sul"
-}
-
+    "CPF": "34567890123",
+    "genero": "M",
+    "data_nascimento": new Date("1972-09-22"),
+    "origem": "Porto Alegre - Rio Grande do Sul"
+},
 ]);
-
