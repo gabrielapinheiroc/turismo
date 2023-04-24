@@ -224,10 +224,46 @@ db.createCollection("Pacotes");
 db.Pacotes.insertMany([ 
 
 {
+tipo: "Bronze",
+
+valor_hotel: {
+    "3": 250,
+    "3.5": 300,
+    "4": 400,
+}
+transporte: ["Ônibus"],
+estacao: ["Verão", "Inverno", "Primavera"]
+},
+
+{
+tipo: "Prata",
+classificacao_hotel: 4,
+valor_hotel: {
+    "3.5": 500,
+    "4": 600,
+    "4.5": 650
+}
+transporte: ["Avião", "Ônibus"]
+estacao: ["Verão", "Inverno", "Primavera", "Outono"]
+},
+
+{
+tipo: "Ouro",
+valor_hotel: {
+    "4": 750,
+    "4.5": 1000,
+    "5": 1500
+}
+transporte: ["Avião"],
+estacao: ["Verão", "Inverno", "Primavera", "Outono"]
+},
+
+/*
+{
 tipo: "Prata",
 classificacao_hotel: 4,
 valor: 3500,
-transporte: ["Avião", "Ônibus"]
+transporte: ["Avião", "Ônibus"],
 estacao: ["Verão", "Inverno", "Primavera", "Outono"]
 },
 
@@ -246,5 +282,55 @@ valor: 2000,
 transporte: ["Ônibus"]
 estacao: ["Verão", "Inverno", "Primavera"]
 }
+*/
 
 ]);
+
+db.createCollection("Turistas");
+
+db.Turistas.insertMany([ 
+{
+    CPF: "79879898576"
+    genero: "F"
+    data_nascimento: new Date("1977-08-22"),
+    origem: "São Paulo - São Paulo"
+}
+
+{
+    CPF: "79879898576",
+    genero: "F",
+    data_nascimento: new Date("1990-05-15"),
+    origem: "Recife - Pernambuco"
+},
+
+{
+    CPF: "13546548965",
+    genero: "M",
+    data_nascimento: new Date("1985-12-01"),
+    origem: "Salvador - Bahia"
+},
+  
+{
+    CPF: "98765432109",
+    genero: "F",
+    data_nascimento: new Date("1995-08-10"),
+    origem: "Fortaleza - Ceará"
+}
+
+ 
+{
+    CPF: "23456789012",
+    genero: "F",
+    data_nascimento: new Date("1995-05-12"),
+    origem: "Belo Horizonte - Minas Gerais"
+},
+
+{
+    CPF: "34567890123",
+    genero: "M",
+    data_nascimento: new Date("1972-09-22"),
+    origem: "Porto Alegre - Rio Grande do Sul"
+}
+
+]);
+
