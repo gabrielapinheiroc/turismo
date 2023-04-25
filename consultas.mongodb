@@ -101,3 +101,26 @@ db.Turistas.find({
         return this.data_nascimento.getFullYear() >= 1990;
     }
 });
+
+//Consulta para encontrar as hospedagens feitas por um turista com um CPF específico:
+db.Hospedagens.find({"turista.CPF": "79879898576"}, {"turista": 0})
+
+//Consulta para encontrar as hospedagens feitas em um hotel com um nome específico:
+db.Hospedagens.find({"hotel.nome": "Hotel E"}, {"hotel": 0})
+
+//Consulta para encontrar as hospedagens feitas em um determinado período:
+db.Hospedagens.find({
+    "data_checkin": {"$gte": new Date("2022-09-22")},
+    "data_checkout": {"$lte": new Date("2023-01-01")},
+    "hotel.nome": "Hotel A"
+})
+
+//Consulta para encontrar as hospedagens que foram pagas antecipadamente:
+db.Hospedagens.find({"pagamento_antecipado": true})
+
+//Consulta para encontrar as hospedagens que duraram mais de uma semana:
+db.Hospedagens.find({
+    $expr: {
+        $gt: [{$divide: [{$subtract: ["$data_checkout", "$data_checkin"]}, 1000*60*60*24*7]}, 1]
+    }
+})
