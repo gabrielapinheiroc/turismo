@@ -147,8 +147,8 @@ db.Hospedagens.update(
 );
 
 //Consulta que procura por texto em todo o DB
-//db.PontosTuristicos.createIndex({ nome: 'text' })
+db.PontosTuristicos.createIndex({ nome: 'text' })
 db.PontosTuristicos.find({$text: {$search: "Pão"}});
 
 //Renomeia a coleção 
-db.PacotePasseios.renameCollection("TiposPasseios");
+db.PacotePasseios.renameCollection("PacotesPasseios");
