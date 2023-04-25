@@ -166,3 +166,36 @@ db.Hoteis.aggregate([
 
 //Busca todos os Hoteis que não possuem nenhuma comodidate
 db.Hoteis.find({comodidades: {$exists: false}}, {'_id': 0})
+
+//MapReduce para calcular o valor total de um PacotePasseio após o desconto
+var mapFunction = function() {
+    for (var i = 0; i < this.passeios.length; i++) {
+        emit(this._id, {valor: this.passeios[i].valor, desconto: this.desconto});
+    }
+};
+
+var reduceFunction = function(key, values) {
+    var sum = 0;
+    for (var i = 0; i < values.length; i++) {
+       sum += values[i].valor;
+    }
+    var total = (sum * (1 - 0.01 * values[0].desconto)).toFixed(2);
+    return total;
+};
+
+var finalizeFunction = function(key, reducedVal) {
+    return {"total": reducedVal};
+};
+
+var nomeQueryPasseio = "Pacote RJ"
+db.PacotePasseios.mapReduce(
+    mapFunction,
+    reduceFunction,
+    {
+        out: "valorTotalPasseios",
+        query: {nome: nomeQueryPasseio},
+        finalize: finalizeFunction
+    }
+);
+
+db.valorTotalPasseios.find({}, {"_id": 0});
