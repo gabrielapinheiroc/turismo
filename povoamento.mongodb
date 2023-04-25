@@ -321,3 +321,71 @@ db.Turistas.insertMany([
     "origem": "Porto Alegre - Rio Grande do Sul"
 },
 ]);
+
+db.createCollection("Passeios");
+db.Passeios.insertMany([
+{
+    "ponto_turistico": db.PontosTuristicos.findOne({nome: 'Cristo Redentor'}, {'_id': 0}),
+    "duracao": "3h",
+    "valor": 200,
+    "data": new Date("2023-05-13"),
+},
+
+{
+    "ponto_turistico": db.PontosTuristicos.findOne({nome: 'Cristo Redentor'}, {'_id': 0}),
+    "duracao": "3h",
+    "valor": 230,
+    "data": new Date("2023-05-15"),
+},
+
+{
+    "ponto_turistico": db.PontosTuristicos.findOne({nome: 'Parque das Aves'}, {'_id': 0}),
+    "duracao": "3h",
+    "valor": 80,
+    "data": new Date("2023-05-30"),
+},
+
+{
+    "ponto_turistico": db.PontosTuristicos.findOne({nome: 'Marco Zero'}, {'_id': 0}),
+    "duracao": "1h",
+    "valor": 0,
+    "data": new Date("2023-04-30"),
+},
+
+{
+    "ponto_turistico": db.PontosTuristicos.findOne({nome: 'Cataratas do Iguaçu'}, {'_id': 0}),
+    "duracao": "5h",
+    "valor": 75,
+    "data": new Date("2023-09-07"),
+},
+
+{
+    "ponto_turistico": db.PontosTuristicos.findOne({nome: 'Pão de Açúcar'}, {'_id': 0}),
+    "duracao": "4h",
+    "valor": 190,
+    "data": new Date("2023-05-13"),
+},
+
+{
+    "ponto_turistico": db.PontosTuristicos.findOne({nome: 'Pão de Açúcar'}, {'_id': 0}),
+    "duracao": "4h",
+    "valor": 160,
+    "data": new Date("2023-05-15"),
+},
+]);
+
+db.createCollection("PacotePasseios");
+db.PacotePasseios.insertMany([
+{
+    "passeios": [db.Passeios.findOne({'ponto_turistico.nome': 'Pão de Açúcar', 'data': {$eq: new Date("2023-05-13")}}),
+                    db.Passeios.findOne({'ponto_turistico.nome': 'Cristo Redentor', 'data': {$eq: new Date("2023-05-15")}})],
+    "desconto": 10
+},
+
+{
+    "passeios": [db.Passeios.findOne({'ponto_turistico.nome': 'Cataratas do Iguaçu', 'data': {$eq: new Date("2023-09-07")}}),
+                    db.Passeios.findOne({'ponto_turistico.nome': 'Cataratas do Iguaçu', 'data': {$eq: new Date("2023-09-07")}}),
+                    db.Passeios.findOne({'ponto_turistico.nome': 'Cataratas do Iguaçu', 'data': {$eq: new Date("2023-09-07")}})],
+    "desconto": 15
+},
+]);
