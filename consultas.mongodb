@@ -133,3 +133,8 @@ db.Hoteis.updateOne(
     {$addToSet: {"comodidades": "academia"}}
  );
 
+// Atualiza a situação do pagamento de uma hospedagem especifica
+db.Hospedagens.update(
+    { _id : ObjectId('6447e63b2a9711157c90f0ad')},
+    {$set: { "pagamento_antecipado": true}}
+);
