@@ -389,3 +389,69 @@ db.PacotePasseios.insertMany([
     "desconto": 15
 },
 ]);
+
+db.createCollection("Hospedagens");
+db.Hospedagens.insertMany([
+    { 
+    "turista": db.Turistas.findOne({CPF: '79879898576'}, {'_id': 0}),
+    "hotel": db.Hoteis.findOne({nome: 'Hotel A'}, {'_id': 0}),
+    "data_checkin": new Date("2022-09-22"),
+    "data_checkout": new Date("2022-09-23"),
+    "apto": "1002",
+    "pagamento_antecipado": true
+    },
+
+    { 
+    "turista": db.Turistas.findOne({CPF: '79879898576'}, {'_id': 0}),
+    "hotel": db.Hoteis.findOne({nome: 'Hotel B'}, {'_id': 0}),
+    "data_checkin": new Date("2022-09-24"),
+    "data_checkout": new Date("2022-09-25"),
+    "apto": "502",
+    "pagamento_antecipado": false
+    },
+
+    { 
+    "turista": db.Turistas.findOne({CPF: '79879898576'}, {'_id': 0}),
+    "hotel": db.Hoteis.findOne({nome: 'Hotel D'}, {'_id': 0}),
+    "data_checkin": new Date("2022-09-22"),
+    "data_checkout": new Date("2022-09-23"),
+    "apto": "301",
+    "pagamento_antecipado": false
+    },
+
+    { 
+    "turista": db.Turistas.findOne({CPF: '23456789012'}, {'_id': 0}),
+    "hotel": db.Hoteis.findOne({nome: 'Hotel E'}, {'_id': 0}),
+    "data_checkin": new Date("2023-04-12"),
+    "data_checkout": new Date("2023-04-28"),
+    "apto": "2905",
+    "pagamento_antecipado": true
+    },
+
+    { 
+    "turista": db.Turistas.findOne({CPF: '98765432109'}, {'_id': 0}),
+    "hotel": db.Hoteis.findOne({nome: 'Hotel E'}, {'_id': 0}),
+    "data_checkin": new Date("2022-12-20"),
+    "data_checkout": new Date("2023-01-04"),
+    "apto": "1104",
+    "pagamento_antecipado": true
+    },
+
+    { 
+    "turista": db.Turistas.findOne({CPF: '34567890123'}, {'_id': 0}),
+    "hotel": db.Hoteis.findOne({nome: 'Hotel H'}, {'_id': 0}),
+    "data_checkin": new Date("2021-04-03"),
+    "data_checkout": new Date("2021-04-10"),
+    "apto": "101",
+    "pagamento_antecipado": true
+    },
+
+    { 
+    "turista": db.Turistas.findOne({CPF: '34567890123'}, {'_id': 0}),
+    "hotel": db.Hoteis.findOne({nome: 'Hotel F'}, {'_id': 0}),
+    "data_checkin": new Date("2023-01-28"),
+    "data_checkout": new Date("2023-01-31"),
+    "apto": "207",
+    "pagamento_antecipado": true
+    },
+]);
