@@ -267,32 +267,6 @@ db.Pacotes.insertMany([
     "transporte": ["Avião"],
     "estacao": ["Verão", "Inverno", "Primavera", "Outono"]
 },
-
-/*
-{
-    "tipo": "Prata",
-    "classificacao_hotel": 4,
-    "valor": 3500,
-    "transporte": ["Avião", "Ônibus"],
-    "estacao": ["Verão", "Inverno", "Primavera", "Outono"]
-},
-
-{
-    "tipo": "Ouro",
-    "classificacao_hotel": 5,
-    "valor": 5000,
-    "transporte": ["Avião"],
-    "estacao": ["Verão", "Inverno", "Primavera", "Outono"]
-},
-
-{
-    "tipo": "Bronze",
-    "classificacao_hotel": 3,
-    "valor": 2000,
-    "transporte": ["Ônibus"],
-    "estacao": ["Verão", "Inverno", "Primavera"]
-},
-*/
 ]);
 
 db.createCollection("Turistas");
@@ -396,12 +370,14 @@ db.createCollection("PacotesPasseios");
 db.PacotesPasseios.renameCollection("PacotePasseios");
 db.PacotePasseios.insertMany([
 {
+    "nome": "Pacote RJ",
     "passeios": [db.Passeios.findOne({'ponto_turistico.nome': 'Pão de Açúcar', 'data': {$eq: new Date("2023-05-13")}}),
                     db.Passeios.findOne({'ponto_turistico.nome': 'Cristo Redentor', 'data': {$eq: new Date("2023-05-15")}})],
     "desconto": 10
 },
 
 {
+    "nome": "Pacote Família Iguaçu",
     "passeios": [db.Passeios.findOne({'ponto_turistico.nome': 'Cataratas do Iguaçu', 'data': {$eq: new Date("2023-09-07")}}),
                     db.Passeios.findOne({'ponto_turistico.nome': 'Cataratas do Iguaçu', 'data': {$eq: new Date("2023-09-07")}}),
                     db.Passeios.findOne({'ponto_turistico.nome': 'Cataratas do Iguaçu', 'data': {$eq: new Date("2023-09-07")}})],
