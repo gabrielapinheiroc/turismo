@@ -1,4 +1,4 @@
-use ("TurismoDB");
+use("TurismoDB");
 
 // Retorna os 5 pontos turísticos mais visitados em ordem decrescente
 db.PontosTuristicos.find().sort({qtdvisitante: -1}).limit(5);
@@ -102,18 +102,12 @@ db.Turistas.find({
         return this.data_nascimento.getFullYear() >= 1990;
     }
 });
-// Retorna os turistas que nasceram a partir de 1990 - com pretty (testar)
-/*db.Turistas.find({
-    $where: function() {
-        return this.data_nascimento.getFullYear() >= 1990;
-    }
-}).pretty();*/
 
 //Consulta para encontrar as hospedagens feitas por um turista com um CPF específico:
 db.Hospedagens.find({"turista.CPF": "79879898576"}, {"turista": 0})
 
 //Consulta para encontrar as hospedagens feitas em um hotel com um nome específico:
-db.Hospedagens.find({"hotel.nome": "Hotel E"}, {"hotel": 0})
+db.Hospedagens.find({"hotel.nome": "Hotel E"}, {"hotel": 0}).pretty();
 
 //Consulta para encontrar as hospedagens feitas em um determinado período:
 db.Hospedagens.find({
@@ -131,6 +125,7 @@ db.Hospedagens.find({
         $gt: [{$divide: [{$subtract: ["$data_checkout", "$data_checkin"]}, 1000*60*60*24*7]}, 1]
     }
 })
+
 //Consulta para encontrar todos os hoteis que possuem spa e academia
 db.Hoteis.find({comodidades: {$all:["spa","academia"]}});
 
@@ -138,7 +133,7 @@ db.Hoteis.find({comodidades: {$all:["spa","academia"]}});
 db.Hoteis.updateOne(
     { _id : ObjectId("6447e63b2a9711157c90f095")},
     {$addToSet: {"comodidades": "academia"}}
- );
+);
 
 // Atualiza a situação do pagamento de uma hospedagem especifica
 db.Hospedagens.update(
@@ -147,8 +142,27 @@ db.Hospedagens.update(
 );
 
 //Consulta que procura por texto em todo o DB
-db.PontosTuristicos.createIndex({ nome: 'text' })
+db.PontosTuristicos.createIndex({nome: 'text'})
 db.PontosTuristicos.find({$text: {$search: "Pão"}});
 
-//Renomeia a coleção 
-db.PacotePasseios.renameCollection("PacotesPasseios");
+//Lista o nome, a cidade, a classificação, e se há piscina e spa em cada Hotel da coleção Hoteis
+db.Hoteis.aggregate([
+    {
+        $project: {
+            _id: 0,
+            nome: 1,
+            cidade: 1,
+            classificacao: 1,
+            comodidades: {
+                $filter: {
+                    input: "$comodidades",
+                    as: "cmod",
+                    cond: {$in: ["$$cmod", ["piscina", "spa"]]}
+                }
+            }
+        }
+    }
+]);
+
+//Busca todos os Hoteis que não possuem nenhuma comodidate
+db.Hoteis.find({comodidades: {$exists: false}}, {'_id': 0})
