@@ -3,6 +3,7 @@ use ("TurismoDB");
 // Retorna os 5 pontos turísticos mais visitados em ordem decrescente
 db.PontosTuristicos.find().sort({qtdvisitante: -1}).limit(5);
 
+
 // Retorna a quantidade média de visitantes por cidade
 db.PontosTuristicos.aggregate([
     {
@@ -101,6 +102,12 @@ db.Turistas.find({
         return this.data_nascimento.getFullYear() >= 1990;
     }
 });
+// Retorna os turistas que nasceram a partir de 1990 - com pretty (testar)
+/*db.Turistas.find({
+    $where: function() {
+        return this.data_nascimento.getFullYear() >= 1990;
+    }
+}).pretty();*/
 
 //Consulta para encontrar as hospedagens feitas por um turista com um CPF específico:
 db.Hospedagens.find({"turista.CPF": "79879898576"}, {"turista": 0})
@@ -138,3 +145,10 @@ db.Hospedagens.update(
     { _id : ObjectId('6447e63b2a9711157c90f0ad')},
     {$set: { "pagamento_antecipado": true}}
 );
+
+//Consulta que procura por texto em todo o DB
+//db.PontosTuristicos.createIndex({ nome: 'text' })
+db.PontosTuristicos.find({$text: {$search: "Pão"}});
+
+//Renomeia a coleção 
+db.PacotePasseios.renameCollection("TiposPasseios");
