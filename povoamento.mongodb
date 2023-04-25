@@ -170,7 +170,7 @@ db.Hoteis.insertMany([
     "pais": "Brasil",
     "classificacao": 4.5,
     "qtd_quartos": 80,
-    "amenidades": ["piscina", "serviço de quarto"]
+    "comodidades": ["piscina", "serviço de quarto"]
 },
 
 {
@@ -180,7 +180,7 @@ db.Hoteis.insertMany([
     "pais": "Brasil",
     "classificacao": 3,
     "qtd_quartos": 50,
-    "amenidades": ["piscina", "serviço de quarto", "restaurante"]
+    "comodidades": ["piscina", "serviço de quarto", "restaurante"]
 },
 
 {
@@ -190,7 +190,7 @@ db.Hoteis.insertMany([
     "pais": "Brasil",
     "classificacao": 4.5,
     "qtd_quartos": 70,
-    "amenidades": ["piscina", "serviço de quarto", "restaurante", "spa"]
+    "comodidades": ["piscina", "serviço de quarto", "restaurante", "spa"]
 },
 
 {
@@ -200,7 +200,7 @@ db.Hoteis.insertMany([
     "pais": "Brasil",
     "classificacao": 5,
     "qtd_quartos": 120,
-    "amenidades": ["piscina", "serviço de quarto", "restaurante", "spa", "academia" ]
+    "comodidades": ["piscina", "serviço de quarto", "restaurante", "spa", "academia" ]
 },
 
 {
@@ -210,7 +210,7 @@ db.Hoteis.insertMany([
     "pais": "Brasil",
     "classificacao": 4,
     "qtd_quartos": 60,
-    "amenidades": ["piscina", "serviço de quarto", "restaurante"]
+    "comodidades": ["piscina", "serviço de quarto", "restaurante"]
 },
 ]);
 
