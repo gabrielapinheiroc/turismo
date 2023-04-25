@@ -124,3 +124,5 @@ db.Hospedagens.find({
         $gt: [{$divide: [{$subtract: ["$data_checkout", "$data_checkin"]}, 1000*60*60*24*7]}, 1]
     }
 })
+//Consulta para encontrar todos os hoteis que possuem spa e academia
+db.Hoteis.find({comodidades: {$all:["spa","academia"]}});
