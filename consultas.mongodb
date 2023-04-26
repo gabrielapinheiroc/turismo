@@ -168,6 +168,7 @@ db.Hoteis.aggregate([
 db.Hoteis.find({comodidades: {$exists: false}}, {'_id': 0})
 
 //MapReduce para calcular o valor total de um PacotePasseio após o desconto
+use("TurismoDB")
 var mapFunction = function() {
     for (var i = 0; i < this.passeios.length; i++) {
         emit(this._id, {valor: this.passeios[i].valor, desconto: this.desconto});
@@ -183,18 +184,13 @@ var reduceFunction = function(key, values) {
     return total;
 };
 
-var finalizeFunction = function(key, reducedVal) {
-    return {"total": reducedVal};
-};
-
 var nomeQueryPasseio = "Pacote RJ"
 db.PacotePasseios.mapReduce(
     mapFunction,
     reduceFunction,
     {
         out: "valorTotalPasseios",
-        query: {nome: nomeQueryPasseio},
-        finalize: finalizeFunction
+        query: {nome: nomeQueryPasseio}
     }
 );
 
