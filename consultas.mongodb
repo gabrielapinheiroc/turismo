@@ -130,14 +130,16 @@ db.Hospedagens.find({
 db.Hoteis.find({comodidades: {$all:["spa","academia"]}});
 
 //Adiciona 'academia' no array de comodidades do Hotel D
+var idHotel = db.Hoteis.findOne({nome: "Hotel D"})._id;
 db.Hoteis.updateOne(
-    { _id : ObjectId("6447e63b2a9711157c90f095")},
+    { _id : idHotel},
     {$addToSet: {"comodidades": "academia"}}
 );
 
 // Atualiza a situação do pagamento de uma hospedagem especifica
+var idHospedagem = db.Hospedagens.findOne({'turista.CPF': '79879898576', 'hotel.nome': 'Hotel B', 'data_checkin': {$eq: new Date("2022-09-24")}})._id;
 db.Hospedagens.update(
-    { _id : ObjectId('6447e63b2a9711157c90f0ad')},
+    { _id : idHospedagem},
     {$set: { "pagamento_antecipado": true}}
 );
 
